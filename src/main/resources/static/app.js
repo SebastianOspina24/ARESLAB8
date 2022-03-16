@@ -42,9 +42,8 @@ var app = (function () {
         stompClient.connect({}, function (frame) {
             console.log('Connected: ' + frame);
             stompClient.subscribe('/topic/newpoint', function (eventbody) {
-                alert(eventbody)
                 var point=JSON.parse(eventbody.body);
-                console.log(point.x)
+                addPointToCanvas(point);
             });
         });
 
@@ -56,9 +55,16 @@ var app = (function () {
 
         init: function () {
             var can = document.getElementById("canvas");
-            
             //websocket connection
             connectAndSubscribe();
+            if(window.PointerEvent){
+                can.addEventListener("pointerdown",function(evt){
+                    var point = getMousePosition(evt);
+                    console.log(point);
+                    addPointToCanvas(point);
+                    publicPointAtTopic(point)
+                });
+            }
         },
 
         publishPoint: function(px,py){
