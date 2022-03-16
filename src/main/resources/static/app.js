@@ -30,7 +30,7 @@ var app = (function () {
     };
 
     var publicPointAtTopic = function (point){
-        stompClient.send(urlDibujo, {}, JSON.stringify(point));
+        stompClient.send("/app"+urlDibujo, {}, JSON.stringify(point));
         console.log("Se publico el punto "+point);
     };
 
@@ -43,7 +43,7 @@ var app = (function () {
         //subscribe to /topic/TOPICXX when connections succeed
         stompClient.connect({}, function (frame) {
             console.log('Connected: ' + frame);
-            stompClient.subscribe(urlDibujo, function (eventbody) {
+            stompClient.subscribe("/topic"+urlDibujo, function (eventbody) {
                 var point=JSON.parse(eventbody.body);
                 addPointToCanvas(point);
             });
@@ -58,7 +58,7 @@ var app = (function () {
         connect: function (dibujo) {
             var can = document.getElementById("canvas");
             //websocket connection
-            urlDibujo = '/topic/newpoint.'+dibujo;
+            urlDibujo = '/newpoint.'+dibujo;
             connectAndSubscribe();
             alert("Te conectaste al dibujo No"+ dibujo);
             if(window.PointerEvent){
