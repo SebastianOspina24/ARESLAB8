@@ -55,7 +55,8 @@ Para esto, realice lo siguiente:
 	```bash
 	git commit -m "PARTE 1".
 	```
-
+Con esta imagen demostramos el lanzamiento exitoso de la alerta:
+![](img/parte1.png)
 
 ## Parte II.
 
@@ -69,6 +70,8 @@ Para hacer mas útil la aplicación, en lugar de capturar las coordenadas con ca
 	```bash
 	git commit -m "PARTE 2".
 	```
+En esta imagen se ve como se replican correctamente los puntos según el dibujo:
+![](img/parte2.png)
 
 ## Parte III.
 
@@ -83,6 +86,7 @@ Ajuste la aplicación anterior para que pueda manejar más de un dibujo a la vez
 	git commit -m "PARTE 3".
 	```
 
+![](img/parte3.png)
 
 ## Parte IV.
 
@@ -133,7 +137,9 @@ Para ver cómo manejar esto desde el manejador de eventos STOMP del servidor, re
 	git commit -m "PARTE FINAL".
 	```	
 
-
+![](img/parte4.png)
+![](img/parte4.1.png)
+![](img/parte4.2.png)
 
 ### Criterios de evaluación
 
